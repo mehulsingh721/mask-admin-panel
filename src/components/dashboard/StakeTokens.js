@@ -52,6 +52,7 @@ const StakeTokens = () => {
     dailyPercent: "",
     minimumStake: "",
     minimumWithdraw: "",
+    aprPercentage: "",
   };
 
   const [showModal, setShowModal] = useState(false); // State to control modal display
@@ -231,7 +232,7 @@ const StakeTokens = () => {
 
         {/* Modal */}
         {showModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center overflow-y-auto">
             <div className="bg-white p-6 rounded-md w-[400px]">
               <h2 className="text-xl font-semibold mb-4">List Token</h2>
 
@@ -290,6 +291,18 @@ const StakeTokens = () => {
                 />
               </div>
               <div className="flex flex-col mb-4">
+                <label htmlFor="minimumWithdraw">APR Percentages:</label>
+                <input
+                  type="text"
+                  id="percentages"
+                  placeholder="6 Months,12 Months,18 Months, 24 Months"
+                  // disabled={true}
+                  name="aprPercentage"
+                  onChange={handleTokenInfoChange}
+                  className="border rounded-md p-2"
+                />
+              </div>
+              {/* <div className="flex flex-col mb-4">
                 <label htmlFor="name">Min Stake:</label>
                 <input
                   type="text"
@@ -325,7 +338,7 @@ const StakeTokens = () => {
                   onChange={handleTokenInfoChange}
                   className="border rounded-md p-2"
                 />
-              </div>
+              </div> */}
               <div className="flex flex-col mb-4">
                 <label htmlFor="tokenSymbol">Symbol:</label>
                 <input
